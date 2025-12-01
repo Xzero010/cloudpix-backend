@@ -34,6 +34,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
 
+    permissions:
+      id-token: write
+      contents: read
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
@@ -53,3 +57,4 @@ jobs:
           app-name: 'cloudpix-backend'
           slot-name: 'Production'
           package: .
+
